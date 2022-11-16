@@ -13,7 +13,7 @@ function Form({ obj, setObj, submitHandler }) {
   }
 
   // if the url includes "cards" then it's the edit card form}
-  if (route.url.includes("cards")) {
+  if (route.url.includes("edit")) {
     return (
       <form onSubmit={submitHandler}>
         <div className="form-group">
@@ -48,7 +48,44 @@ function Form({ obj, setObj, submitHandler }) {
           Submit
         </button>
       </form>
-    );
+    );}
+    else if(route.url.includes("new")) {
+      return (
+        <form onSubmit={submitHandler}>
+        <div className="form-group">
+          <label htmlFor="front">Front</label>
+          <textarea
+            className="form-control"
+            id="front"
+            name="front"
+            rows="3"
+            placeholder="Front side of card"
+            onChange={changeHandler}
+          ></textarea>
+        </div>
+        <div className="form-group">
+          <label htmlFor="back">Back</label>
+          <textarea
+            className="form-control"
+            id="back"
+            name="back"
+            rows="3"
+            placeholder="Back side of card"
+            onChange={changeHandler}
+          ></textarea>
+        </div>
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={() =>history.push(route.url.replace("/cards/new", ""))}
+        >
+          Done
+        </button>
+        <button type="submit" className="btn btn-primary mx-2">
+          Save
+        </button>
+      </form>
+      );
   } else {
     // if the url doesn't include "cards" then it's the edit deck form
     return (

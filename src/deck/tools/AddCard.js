@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { useParams, useHistory } from "react-router-dom";
 import { createCard } from "../../utils/api";
+import Form from "./Form";
 
 function AddCard() {
   const history = useHistory();
@@ -41,40 +42,7 @@ function AddCard() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="front">Front</label>
-          <textarea
-            className="form-control"
-            id="front"
-            name="front"
-            rows="3"
-            placeholder="Front side of card"
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label htmlFor="back">Back</label>
-          <textarea
-            className="form-control"
-            id="back"
-            name="back"
-            rows="3"
-            placeholder="Back side of card"
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <button
-          type="button"
-          className="btn btn-secondary"
-          onClick={handleDone}
-        >
-          Done
-        </button>
-        <button type="submit" className="btn btn-primary mx-2">
-          Save
-        </button>
-      </form>
+      <Form obj={formData} setObj={setFormData} submitHandler={handleSubmit} />
     </div>
   );
 }
