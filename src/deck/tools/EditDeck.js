@@ -16,13 +16,6 @@ function EditDeck() {
     loadDeck();
   }, [deckId]);
 
-  function changeHandler(event) {
-    setDeck({
-      ...deck,
-      [event.target.name]: event.target.value,
-    });
-  }
-
   function submitHandler(event) {
     event.preventDefault();
     async function updateDeckInAPI() {

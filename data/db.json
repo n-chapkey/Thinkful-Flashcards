@@ -4,11 +4,6 @@
       "name": "React Router321EDITED",
       "description": "React Router321 is a collection of navigational components that compose declaratively with your application. EDITED",
       "id": 2
-    },
-    {
-      "name": "dasd",
-      "description": "adasd",
-      "id": 3
     }
   ],
   "cards": [
@@ -29,24 +24,6 @@
       "back": "card editedadasd",
       "deckId": 2,
       "id": 8
-    },
-    {
-      "front": "aaaaaaaaaaaaaaa",
-      "back": "aaaaaaaaaaaaaaaaaaa",
-      "deckId": 3,
-      "id": 9
-    },
-    {
-      "front": "bbbbbbbbbbbbbbbbbbbbb",
-      "back": "bbbbbbbbbbbbbbbbbbbb",
-      "deckId": 3,
-      "id": 10
-    },
-    {
-      "front": "tttttttttttttttttt",
-      "back": "ttttttttttttttttttttttttttt",
-      "deckId": 3,
-      "id": 11
     }
   ]
 }
