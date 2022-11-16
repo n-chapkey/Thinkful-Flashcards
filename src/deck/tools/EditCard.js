@@ -1,6 +1,7 @@
 import { useParams, useHistory, Link } from "react-router-dom";
 import { readDeck,readCard, updateCard } from "../../utils/api";
 import React, { useEffect, useState } from "react";
+import Form from "./Form";
 
 function EditCard({ deckName }) {
   const { deckId, cardId } = useParams();
@@ -16,22 +17,16 @@ function EditCard({ deckName }) {
       setCard(cardResponse);
     }
     loadCard();
-  }, [deckId]);
+  }, [deckId, cardId]);
 
   function submitHandler(event) {
     event.preventDefault();
     async function updateCardInTheAPI() {
         await updateCard(card);
         history.push(`/decks/${deckId}`);
+        history.go(0);
     }
     updateCardInTheAPI();
-  }
-
-  function changeHandler(event) {
-    setCard({
-      ...card,
-      [event.target.name]: event.target.value,
-    });
   }
 
   return (
@@ -53,39 +48,9 @@ function EditCard({ deckName }) {
         </ol>
       </nav>
       <h1>Edit Card</h1>
-      <form onSubmit={submitHandler}>
-        <div className="form-group">
-          <label htmlFor="front">Front</label>
-          <textarea
-            className="form-control"
-            id="front"
-            name="front"
-            rows="3"
-            onChange={changeHandler}
-            defaultValue={card.front}
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label htmlFor="back">Back</label>
-          <textarea
-            className="form-control"
-            id="back"
-            name="back"
-            rows="3"
-            onChange={changeHandler}
-            defaultValue={card.back}
-          ></textarea>
-        </div>
-        <button
-          onClick={() => history.push(`/decks/${deckId}`)}
-          className="btn btn-secondary mr-2"
-        >
-          Cancel
-        </button>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+
+      {/* form */}
+      <Form obj={card} setObj={setCard} submitHandler={submitHandler}/>
     </div>
   );
 }
